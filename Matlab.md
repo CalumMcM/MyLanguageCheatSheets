@@ -1,8 +1,29 @@
+### Clear Commands
+
+```matlab
+clear % clear data stored in ’Workspace’
+clc   % clear commands shown in ’Command Window’
+```
+
 ### Constructing a Matrix:
 
 ```matlab
 A = [ a11 a12 a13 ; a21 a22 a23 ; a31 a32 a33]
 ```
+
+(:,:)  - Will retrieve a whole matrix
+
+(n,:) - Will retrieve row n of a matrix
+
+(:,n) - Will retrieve column n of a matrix
+
+A' - Will make a transpose of matrix A
+
+#### Reshape
+
+````matlab
+reshape(A,1,9) %Will reshape A (a 3x3 matrix) into a 1x9 matrix
+````
 
 ### Getting the size of a matrix:
 
@@ -122,5 +143,41 @@ text(x+dx, y+dy, z+dz, c); %places text on graph
 %Keep the current plot
 hold on;
 
+```
+
+#### Bar	
+
+```matlab
+hh = bar(A(:,1), A(:,2), 1);
+% Modify the initial plot
+set(hh, 'FaceColor', 'white');
+set(hh, 'EdgeColor', 'red');
+set(hh, 'linewidth', 1.5);
+% Define x and y labels
+ylabel('Rel. Freq.'); xlabel('Length / cm');
+% Create title
+title('Lengths of male fish');
+% Define only x-axis limits
+xlim([0 20]);
+```
+
+####Cumulative Distribution Function
+
+```matlab
+hh = plot(A(:,1), cumsum(A(:,2))/N_M, '-r');
+% Modify the initial plot
+set(hh, 'linewidth', 1.5);
+% Define x and y labels
+ylabel('cdf'); xlabel('Length / cm');
+% Define only x-axis limits
+xlim([0 20]);
+```
+
+#### Decision boundary
+
+```matlab
+% Show decision boundary
+dec_bound = 10.7;
+plot([dec_bound dec_bound], get(gca, ’ylim’), ’--k’);
 ```
 
