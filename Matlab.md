@@ -5,6 +5,15 @@ clear % clear data stored in ’Workspace’
 clc   % clear commands shown in ’Command Window’
 ```
 
+### Save & Load Commands
+
+```matlab
+save test.mat % Will save all workspace variables in test.mat file
+load test.mat % Will load test.mat file
+```
+
+
+
 ### Constructing a Matrix:
 
 ```matlab
@@ -25,11 +34,23 @@ A' - Will make a transpose of matrix A
 reshape(A,1,9) %Will reshape A (a 3x3 matrix) into a 1x9 matrix
 ````
 
-### Getting the size of a matrix:
+#### Mean
+
+```matlab
+mean(A, 1)  % 1 indicates to apply the mean per column
+mean(A,2) % 2 indicates to apply the mean per row
+mean(A,'all') % Computes the mean over all elements of A
+```
+
+#### Getting the size of a matrix:
 
 ```matlab
 [row, col] = size(A)
 ```
+
+#### Magic Matrix
+
+
 
 ### Read Data Into A Matrix
 
@@ -49,6 +70,13 @@ headerlinesIn = 1;  %Lets you take first lines are titles
 file_data = importdata(filename, delimiterIn, headerlinesIn); 
 A = file_data.data; %Store the actual data in a struct
 col_headers = file_data.colheaders; %Extract the headers as a list
+```
+
+### Write data into a file
+
+```matlab
+dlmwrite(’data.txt’, test_data, ’delimiter’, ’\t’)
+%Writes the matrix test_data into the file data.txt with tabs to seperate each entry of the matrix
 ```
 
 ### Print 
@@ -102,7 +130,7 @@ sumRowN = sum(A(n,:)) %For row n
 
 ### Plotting a Graph
 
-#### 2D
+#### 2D - Scatter
 
 ```matlab
 x = A(:,1); %Sets x axis as first column of matrix A
@@ -121,7 +149,7 @@ dx = 0.1; dy = 0.3; %Adds displacement so numbers don't overlap points
 text(x+dx, y+dy, c); %places text on graph
 ```
 
-####3D
+####3D - Scatter
 
 ```matlab
 x = A(:,1); %Sets x axis as first column of matrix A
@@ -145,7 +173,7 @@ hold on;
 
 ```
 
-#### Bar	
+#### 2D - Bar
 
 ```matlab
 hh = bar(A(:,1), A(:,2), 1);
@@ -160,6 +188,18 @@ title('Lengths of male fish');
 % Define only x-axis limits
 xlim([0 20]);
 ```
+
+#### 3D - meshgrid/surf
+
+```matlab
+figure
+[x, y] = meshgrid(-10:0.1:10, -5:0.1:5);
+z = x.*exp(-x.^2 - y.^2);
+surf(x, y, z)
+% call the surf function
+```
+
+
 
 ####Cumulative Distribution Function
 
@@ -179,5 +219,13 @@ xlim([0 20]);
 % Show decision boundary
 dec_bound = 10.7;
 plot([dec_bound dec_bound], get(gca, ’ylim’), ’--k’);
+```
+
+### Functions
+
+```matlab
+function [ A_shift ] = mean_shift_1( A )
+%			↑						↑
+%  What will be returned	function name and its arguments
 ```
 
