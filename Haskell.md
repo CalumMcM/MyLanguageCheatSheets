@@ -168,7 +168,62 @@ divide n m  =  Just (n`div`m)
 
 ### Currying
 
+```haskell
+-- This is the process of changing a function which takes multiple arguments in tuple form into a function which takes just one argument and returns another function which accepts further arguments, one by one, that the original function would receive in the rest of that tuple
+-- E.g. The curried form of
+function:: (a, b) -> c
+-- Would be:
+functionCurried:: a -> (b -> c) 
+-- Which can also be written as
+functionCurried:: a -> b -> c
+
+-- This is useful as it allows for partial application
 ```
 
+###Lambda Expressions
+
+```haskell
+-- If given the function:
+f :: [Int] -> Int
+f xs = foldr (+) 0 (map sqr (filter pos xs))
+	where
+		sqr x = x*x
+		ps x = x>0
+		
+-- Then it can be simplified down using lambda expressions to:
+
+f::[Int] -> Int
+f xs = foldr (x) 0 (map (\x -> x*x) (filter (\x -> x > 0) xs))
+
+-- Where '\' represents λ
+```
+
+### Algebraic Types
+
+```haskell
+-- Algebraic types allow us to build new types in infinite ways
+-- E.g.
+type Radius = Float
+type Width = Float
+type Height = FLoat
+
+data Shape = Circle Radius | Rect Width Height
+
+area:: Shape -> Float
+area (Circle r) = pi * r^2
+area (Rect w h) = w * h
+
+eqShape :: Shape -> SHape -> Bool
+eqShape (Circle r) (Circle r') = (r== r')
+eqShape (Rect w h) (Rect w' h') = (w == w') && ( h == h')
+eqShape    x			y		= False
+
+showShape :: Shape -> String
+showShape (Circle r) = "Circle " ++ show F r
+showShape (Rect w h) = "Rect " ++ showF w ++ " " ++ showF h
+
+showF :: Float -> String
+showF x | x >= 0 = show x
+		| otherwise = "(" ++ show x ++ ")"
 ```
 
