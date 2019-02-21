@@ -98,6 +98,18 @@ list1 ++ list2
 zip [0,1,2] "abc" = [(0,a), (1,b), (2, c)]
 ```
 
+### $
+
+```haskell
+-- The $ has the same effect as having a brackets from the point the doller sign appears to the end of the line
+
+putStrLn (show $ 1 + 1)
+putStrLn $ show (1 + 1)
+putStrLn $ show $ 1 + 1
+```
+
+
+
 ### Higher Order Function
 
 #### Map
@@ -152,7 +164,7 @@ f xs  =  foldr (+) 0 (map sqr (filter pos xs))
 -- This takes the sum of squared positive integers from a given list
 ```
 
-### Maybe Function
+### Maybe Type
 
 ```haskell
 -- Used when optional input or output
@@ -165,6 +177,17 @@ divide :: Int -> Int -> Maybe Int
 divide n 0  =  Nothing
 divide n m  =  Just (n`div`m)
 ```
+
+### Either Type
+
+```haskell
+-- Used when you may have one or another types being returned
+safeDiv :: Float -> Float -> Either String Float
+safeDiv x 0 = Left "Divison by zero"
+safeDiv x y = Right (x / y)
+```
+
+
 
 ### Currying
 
@@ -225,5 +248,105 @@ showShape (Rect w h) = "Rect " ++ showF w ++ " " ++ showF h
 showF :: Float -> String
 showF x | x >= 0 = show x
 		| otherwise = "(" ++ show x ++ ")"
+```
+
+### Type Classes
+
+```haskell
+-- When you see
+Eq a => 
+-- In a function it is saying that 'a' needs to have equaility defined
+-- E.g. here is how you would defined the type class Eq
+
+class Eq a where
+(==) :: a -> a -> Bool
+
+instance Eq Int where
+(==) = eqInt
+
+instance Eq Char where
+x == y = ord x ord y
+
+instance (Eq a, Eq b) => Eq (a,b) where
+(u,v) == (x,y) = (u == x) && (v == y)
+
+instance Eq a => Eq [a] where
+[] == [] 		= True
+[] == y:ys 		= False
+x:xs == [] 		= False
+x:xs == y:ys 	= (x == y) && (xs == ys)
+
+-- Each class usually requires instances which are there to help defined it
+
+```
+
+### Eq, Ord and Show Instances
+
+```haskell
+-- An example of how to set them up
+
+instance Eq Season where
+	Winter == Winter = True
+	Spring == Spring = True
+	SUmmer == SUmmer = True
+	Fall == Fall = True
+	_ == _ = False
+	
+instance Ord Season where
+	Spring 	<= Winter 	= False
+	Summer 	<= Winter 	= False
+	Summer 	<= Spring 	= False
+	Fall 	<= Winter 	= False
+	Fall 	<= Spring	= False
+	Fall 	<= Summer 	= False
+	_		<= _		= True
+
+instance Show Season where
+	show Winter = "Winter"
+	show Spring = "Spring"
+	show Summer = "Summer"
+	show Fall 	= "Fall"
+	
+```
+
+### IO and Monads
+
+#### Print
+
+```haskell
+-- To make use of inputs you have to define the output of the function as IO(). However Haskell can only output one character at a time so it needs to be used recursivly
+-- When you are not printing but need to return something (like the empty cases) then you use the command 'done'.
+-- E.g.
+putStr :: String -> IO()
+putStr [] = done
+putStr (x:xs) = putChar x >> putStr xs
+-- For the input putStr "?!" it would be processed as
+putChar '?' >> (putChar '!' >> done)
+```
+
+#### Read from a file
+
+```Haskell
+let file = "myFile.txt" 
+contents <- readFile file -- Will place the contents of 'text.txt' until it reaches an EOF character
+putStrLn contents
+```
+
+#### Writing to a file
+
+```haskell
+let file = "myFile.txt"
+writeFile file = "This is the text I want to write to my file"
+```
+
+### Exception Handling
+
+```haskell
+import Control.Exception -- The required library for exception handling
+
+result <- try (evaluate (5 `div` 0)) :: IO (Either SomeException Int) 
+case result of 
+	Left ex   -> putStrLn $ "Caught exception: " ++ show ex
+    Right val -> putStrLn $ "The answer was: " ++ show val 
 ```
 
