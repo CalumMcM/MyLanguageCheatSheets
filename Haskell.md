@@ -76,7 +76,7 @@ whereExample (x:xs) = (((added (x:xs)) `div` 24) `mod` 7) + 1
 -- The guard at the end of the list comp acts as a filter
 ```
 
-###Combining lists
+### Combining lists
 
 ```Haskell
 -- To add an element to the head of a list:
