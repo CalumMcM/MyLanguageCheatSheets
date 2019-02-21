@@ -120,7 +120,7 @@ positives xs  =  filter pos xs
 -- What filter does is it will apply a condition to every element in a list (in this case pos) and remove those that do not meet the condition
 ```
 
-####Fold
+#### Fold
 
 ```haskell
 -- What foldr does is it will apply a operation which will reduce the size of the input by 1.
