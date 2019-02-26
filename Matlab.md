@@ -12,8 +12,6 @@ save test.mat % Will save all workspace variables in test.mat file
 load test.mat % Will load test.mat file
 ```
 
-
-
 ### Constructing a Matrix:
 
 ```matlab
@@ -52,6 +50,37 @@ mean(A,'all') % Computes the mean over all elements of A
 
 
 
+### Absolute
+
+```matlab
+abs(myMatrix) %Will return the absolute value of each element in the array
+```
+
+### Squared
+
+```matlab
+X = -2:2 % X = vector [-2 -1 0 1 2]
+
+Y = sqrt(X) % Y = vector [0.0000 + 1.4142i   0.0000 + 1.0000i   0.0000 + 0.0000i   1.0000 + 0.0000i   1.4142 + 0.0000i]
+```
+
+### Inverse of a matrix
+
+```matlab
+inv(C) %Where C is a matrix
+```
+
+### ~=
+
+```matlab
+%This fancy combination allows you to search for occurences of an element amongst an array, 0 = Found, 1 = Not Found
+M = "Banana"
+M ~= 'n' % = [1,1,0,1,0,1]
+
+A = coinFlips({'heads' 'heads' 'tails'; 'tails' 'heads' 'tails'})
+A ~= 'tails' % = [0 0 1; 1 0 1]
+```
+
 ### Read Data Into A Matrix
 
 ```matlab
@@ -82,9 +111,13 @@ dlmwrite(’data.txt’, test_data, ’delimiter’, ’\t’)
 ### Print 
 
 ```matlab
-fprintf('Hello World') %For text
+fprintf('Hello World'); %For text
 
 myMatrix %For an object
+
+disp('error: this happened');
+
+error(myErrorMessage); %Will print a red error message to the console
 ```
 
 ### If statements
@@ -92,7 +125,7 @@ myMatrix %For an object
 ```matlab
 if (parameter)
 	%Do this
-elseif (anotherParameter)
+elseif (anotherParameter | myName == myLastName)
 	%Do this instead
 else
 	%Well do this then
