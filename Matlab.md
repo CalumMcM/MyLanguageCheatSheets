@@ -298,9 +298,11 @@ rand(n, m, typeDef) %Returns an nxm matrix of type typeDef (single or double)
 
 %To make it so that the random numbers that are generated are consitent everytime the file is ran we can use
 rng(1) %This sets a seed that will be ensure the random numbers generated are repeatable
-```
 
- 
+%We can create multivariate random numbers using
+mvnrnd(mu, sigma) % Where mu = the mean and sigma is the matrix of variances
+mvrnd(mu, sigma, n) % This will create an n x d matrix where d is from the dimensions of mu (1xd) 
+```
 
 ### Concatenate
 
