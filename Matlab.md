@@ -48,6 +48,32 @@ mean(A,'all') % Computes the mean over all elements of A
 
 #### Magic Matrix
 
+```matlab
+M = magic(n) %Creates an nxn matrix of random numbers
+```
+
+
+
+### Prod
+
+```matlab
+%Takes the product of an array
+% To get the product of the columns of a matrix 
+A = [1 2 3; 4 5 6; 7 8 9];
+B = prod(A);
+%  B = [6 120 504]
+
+%For an array of booleans
+A = [true false; true true] %A = [1 0; 1 1]
+B = prod(A) 
+%B = [1 0]
+
+%To get the product of the rows of a matrix
+A = [1 2 3; 4 5 6; 7 8 9];
+B = prod(A,dim) %I believe prod(A') would also work
+%B = [28; 80; 162]
+```
+
 
 
 ### Absolute
@@ -260,5 +286,30 @@ plot([dec_bound dec_bound], get(gca, ’ylim’), ’--k’);
 function [ A_shift ] = mean_shift_1( A )
 %			↑						↑
 %  What will be returned	function name and its arguments
+```
+
+### Random Numbers
+
+```matlab
+%To create random numbers we can use the function
+rand() %Returns a random variable between (0,1)
+rand(n) %Returns an nxn matrix of random variables
+rand(n, m, typeDef) %Returns an nxm matrix of type typeDef (single or double)
+
+%To make it so that the random numbers that are generated are consitent everytime the file is ran we can use
+rng(1) %This sets a seed that will be ensure the random numbers generated are repeatable
+```
+
+ 
+
+### Concatenate
+
+```matlab
+%To combine arrays we can use
+cat(dim, A, B) %Concatenates array A and B to the given dimension dim 
+%E.g.
+A = [1 2 3 4]; B = [5 6 7 8];
+C = cat(1, A, B); %C = [1 2; 3 4; 5 6; 7 8]
+D = cat(2, A, B); %D = [1 2 5 6; 3 4 7 8]
 ```
 
