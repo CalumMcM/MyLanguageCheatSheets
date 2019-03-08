@@ -176,3 +176,16 @@ try{ //Its important to have a writer in an exception handler
 }
 ```
 
+### Length of String
+
+```java
+int length = myString.length();
+```
+
+### Char At certain postion of String
+
+```java
+String text = "foo";
+char charAtZero = text.charAt(0);
+```
+
