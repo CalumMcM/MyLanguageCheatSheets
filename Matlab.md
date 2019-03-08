@@ -52,6 +52,12 @@ mean(A,'all') % Computes the mean over all elements of A
 M = magic(n) %Creates an nxn matrix of random numbers
 ```
 
+### Zeros
+
+```matlab
+zeros(n, m) %Creates an nxm array of zeros
+```
+
 
 
 ### Prod
