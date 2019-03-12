@@ -80,8 +80,6 @@ B = prod(A,dim) %I believe prod(A') would also work
 %B = [28; 80; 162]
 ```
 
-
-
 ### Absolute
 
 ```matlab
@@ -373,5 +371,27 @@ test out = glmfwd(slnet, xtest);
 numberMisclassified = size(find(classified-answerClasses)); % returns the indices of non-zero elements (i.e where the output class is different to the target class). Then returns the size of misclassified patterns
 percentError = 100.0 * numberMisclassified / size(answerClasses); 
 
+```
+
+### Nargin
+
+```matlab
+%The function nargin will return how many arguments the function given to it has.
+%E.g. for a given function
+
+function c = addme(a,b)
+    switch nargin
+        case 2
+            c = a + b;
+        case 1
+            c = a + a;
+        otherwise
+            c = 0;
+    end
+end
+
+%We can can call it in multiple ways:
+c = addme(13,42) % c = 55
+c = addme(13) % c = 26
 ```
 
