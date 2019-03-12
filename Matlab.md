@@ -376,7 +376,8 @@ percentError = 100.0 * numberMisclassified / size(answerClasses);
 ### Nargin
 
 ```matlab
-%The function nargin will return how many arguments the function given to it has.
+%The function nargin will return how many arguments the function given to it has. If called inside a function with no given arguments (like below) it will return the number of arguments that were passed to the function
+
 %E.g. for a given function
 
 function c = addme(a,b)
