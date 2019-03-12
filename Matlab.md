@@ -321,3 +321,57 @@ C = cat(1, A, B); %C = [1 2; 3 4; 5 6; 7 8]
 D = cat(2, A, B); %D = [1 2 5 6; 3 4 7 8]
 ```
 
+### Define a Single Layer Neural Network
+
+```matlab
+slnet = glm(n,m, 'linear') % Defines a neural network with n inputs, m outputs and a linear output function
+```
+
+### Training a Single Layer Neural Network with Linear Activation Function
+
+```matlab
+%Go to graddesc for more details
+options=foptions;
+options(1)=1; % display/log error values
+options(3)=0.01; % convergence criterion
+options(14)=100; % maximum number of training iterations
+options(18)=0.001; % learning rate (eta)
+
+% Netopt function takes a specfici training algorithm.
+% xtrain is the matrix of training data
+% ttrain contains the correspongind targets, one row per pattern
+
+[slnet options errlog] = netopt(slnet, options, xtrain, ttrain, 'graddesc');
+plot(errlog) % graph of error vs learning rate
+```
+
+### Training a Single Layer Neural Network with Sigmoid Activation Function
+
+```matlab
+options=foptions;
+options(1)=1;
+options(18)=0.01;
+
+ttrain = [ta;tb];
+
+slnet=glm(2,1,’logistic’)
+[slnet options errlog] =
+netopt(slnet, options, xtrain, ttrain, ’graddesc’);
+```
+
+### Testing a Single Layer Neural Network
+
+```matlab
+% glmfwd(net, x) runs the test data xtest throught the network
+
+test out = glmfwd(slnet, xtest);
+
+% If ttest contains the correct classification of for the test data then this will compute the classification error
+
+[maxOut, classified] = max(testOut,[],2); % return the maximum value for each row (work along dimension 2). This then returns the max value for each row in maxOut, adn the index in classified
+[tmpOut, answerClasses] = max(ttest,[],2); 
+numberMisclassified = size(find(classified-answerClasses)); % returns the indices of non-zero elements (i.e where the output class is different to the target class). Then returns the size of misclassified patterns
+percentError = 100.0 * numberMisclassified / size(answerClasses); 
+
+```
+
