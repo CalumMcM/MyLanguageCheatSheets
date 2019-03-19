@@ -189,3 +189,28 @@ String text = "foo";
 char charAtZero = text.charAt(0);
 ```
 
+### Convert String to Int
+
+```java
+Int a = Integer.parseInt(myChar);
+```
+
+### Convert Int to String
+
+```java
+String myString = Integer.toString(myInt);
+```
+
+### Take an input when class called
+
+```java
+//In your main definition where you have 'String[] args'
+//This means that your input will be a string, to process this you do something along the lines of:
+
+int[] input = new int[args.length];
+for (int i = 0; i < args.length; ++i){
+    input[i] = Integer.parseInt(args[i]);
+}
+//The list 'input' now contains the input given when the class was called
+```
+
