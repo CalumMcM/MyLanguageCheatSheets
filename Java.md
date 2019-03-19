@@ -214,3 +214,10 @@ for (int i = 0; i < args.length; ++i){
 //The list 'input' now contains the input given when the class was called
 ```
 
+### Get the char at a specific point
+
+```java
+String input = "Hello";
+Char a = input.charAt(2); // a = l
+```
+
