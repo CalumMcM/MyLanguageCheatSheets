@@ -191,6 +191,21 @@ sumColN = sum(A(:,n)) %For column n
 sumRowN = sum(A(n,:)) %For row n
 ```
 
+### Cumsum
+
+```matlab
+%Takes a cumulative sum of a vector or matrix.
+%For a vector:
+a = [1 2 3 4 5 6];
+cumsum(a) % = [1 3 6 10 15]
+
+%For a matrix:
+A = [1 2 3; 4 5 6];
+cumsum(A) % = [ 1 2 3; 5 7 9] Sums along the columns
+
+cumsum(A,2)% = [1 3 6; 4 9 15] Sums along the rowss
+```
+
 ### Plotting a Graph
 
 #### 2D - Scatter
