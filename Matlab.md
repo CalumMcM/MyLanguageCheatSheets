@@ -407,23 +407,39 @@ function c = addme(a,b)
 end
 
 %We can can call it in multiple ways:
-c = addme(13,42) % c = 55
+c = addme(13,42) % c = 55 
 c = addme(13) % c = 26
 ```
 
-### Eigen vectors and Eigen values
+### Eigen values
 
 ```matlab
-A = magic(4);
-%If A = [1.0000    0.5000    0.3333    0.2500;
-%        0.5000    1.0000    0.6667    0.5000;
-%        0.3333    0.6667    1.0000    0.7500;
-%        0.2500    0.5000    0.7500    1.0000]
+A = gallery('lehmer',4);
+% A = [1.0000    0.5000    0.3333    0.2500;
+%      0.5000    1.0000    0.6667    0.5000;
+%      0.3333    0.6667    1.0000    0.7500;
+%      0.2500    0.5000    0.7500    1.0000]
 e = eig(A);
 %Then e = [0.2078
 %	       0.4078;
 % 	       0.8482;
 %	       2.5362]
+D = eig(A, 'matrix')
+%Then D =  0.2078    0         0         0;
+%          0    0.4078         0         0;
+%          0         0    0.8482         0;
+%          0         0         0    2.5362]
+
+```
+
+### Eigen Vectors and Eigen value
+
+```matlab
+A = gallery('circul', 3);
+%A =  [1     2     3
+%      3     1     2;
+%      2     3     1]
+
 
 ```
 
