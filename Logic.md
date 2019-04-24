@@ -137,6 +137,7 @@ You would get the backward chaining tree from the initial clause $Horse(h)$ of
     - In an action $Poss()$ is used to describe the possibility of an outcome
     - $Result(X)$ is used as a place holder to show that the outcome of $X$ is what will be used in place of $Result(X)$ 
 - Frame axioms are used to express that everything that isn't changed by an action stays the same
+- Succesor-state axioms are used to express all the ways in which the value of a particular fluent can be changed (i.e. on the left side of the $⇔$ you have the value that can be changed in the form $(Value(Result(action, situation)))$ and on the right side you have all things which must be true before the action such that the result of the $action$ gives the $Value$ as true
 
 ###### Example
 
@@ -158,4 +159,32 @@ You would get the backward chaining tree from the initial clause $Horse(h)$ of
     - $At(sq_1,s) ∧ Heading(dir,s) ∧ Next(sq_1,dir,sq_2) ∧ Wumpus(sq_3,s) ∧ sq_2 ≠ sq_3 ⇒ Wumpus(sq_3,result(Shoot,s))$
     - Where this means that if the agent is in $sq_1$ and is heading in direction $dir$ where the next square is $sq_2$ in that direction but the wumpus is in $sq_3$ then the wumpus will remain unchanged regardless of the outcome of$ Shoot()$
 
-    ​	
+- Another way of expressing an action is to have it all on the one line and miss the middle $Poss()$ step. E.g. for the predicates:
+
+    - $L_{ij}$ - The hunter is in square (i,j) in situation s
+    - $W_{ij}$ Wumpus is in square (i,j) in situation s
+    - $HasArrow(s)$ - Hunter has an arrow in situation s
+    - $FacingEast(s)$ - Hunter is facing east in situation s
+    - $FacingNorth(s) $ - Hunter is facing north in situation s
+    - $Turn(Left)$ - action of turning left in situation s
+    - $WumpusAlive(s)$ - the Wumpus is alive in situation s
+    - $Shoot$ - the action of shooting an arrow in situation s
+    - $Forward$ - moving forward in situation s
+
+    An effect axiom that describes how turning left when facing east affect location and direction:
+
+    - $∀i,j,s.L_{ij} ∧ FacingEast(s) ⇒ L_{ij}(Result(Turn(Left)), s) ∧ FacingNorth(Result(Turn(Left)), s)$
+
+    A frame axiom that captures how this action does not affect whether the hunter has her arrow:
+
+    - $∀s.HasArrow(s) ⇒ HasArrow(Result(Turn(Left)), s)$
+
+    A succesor state action for $HasArrow$ would be:
+
+    - $∀a,s.HasArrow(Result(a,s)) ⇔ a ≠ Shoot ∧ HasArrow(s)$ 
+
+    A successor-state action for $WumpusAlive$ would be
+
+    - $∀a,s.WumpusAlive(Result(a,s)) ⇔ (a ≠ Shoot ∧ WumpusAlive(s)) ∨ (WumpusAlive(s) ∧ a = Shoot ∧ ¬(∃i,j,i',j' FacingNorth(s) ∧ (L_{ij}(s) ∧ W_{i'j'}(s) ∧ i = i' ∧ j'>j))$  
+
+        
