@@ -18,9 +18,9 @@
 
 - Sentence: construction of lots of literals
 
-    ![Screenshot 2019-04-24 at 09.20.02](/Users/calummcmeekin/Desktop/Screenshot 2019-04-24 at 09.20.02.png)
-
-![Screenshot 2019-04-24 at 09.24.13](/Users/calummcmeekin/Desktop/Screenshot 2019-04-24 at 09.24.13.png)
+    ![Screenshot 2019-04-24 at 09.20.02](images/Screenshot 2019-04-24 at 09.20.02.png)
+    
+    ![Screenshot 2019-04-24 at 09.24.13](images/Screenshot 2019-04-24 at 09.24.13.png)
 
 - DPLL Alogirthm 
     1. Convert all propositions to CNF
@@ -49,9 +49,9 @@
     - $∀x.At(x,UoE) ∧ Smart(x)$ = Everyone is at UoE and everyone is smart
 - **Equality** (term1=term2) can be used if term1 and term2 refer to the same object
 
-![Screenshot 2019-04-24 at 09.37.12](/Users/calummcmeekin/Desktop/Screenshot 2019-04-24 at 09.37.12.png)
+![Screenshot 2019-04-24 at 09.37.12](images/Screenshot 2019-04-24 at 09.37.12.png)
 
-![Screenshot 2019-04-24 at 09.39.28](/Users/calummcmeekin/Desktop/Screenshot 2019-04-24 at 09.39.28.png)
+![Screenshot 2019-04-24 at 09.39.28](images/Screenshot 2019-04-24 at 09.39.28.png)
 
 ######Examples:
 
@@ -90,7 +90,7 @@ $\frac{p_1 ',p_2 ',...p_n '(p_1  ∧ p_2 ∧…∧p_n  ⇒ q))} {qθ}$ when $p_i
 
 ######Example
 
-![Screenshot 2019-04-24 at 11.03.52](/Users/calummcmeekin/Desktop/Screenshot 2019-04-24 at 11.03.52.png)
+![Screenshot 2019-04-24 at 11.03.52](images/Screenshot 2019-04-24 at 11.03.52.png)
 
 ###Forwards Chaining - FC
 
@@ -113,7 +113,7 @@ For the clause $Horse(h)$ with first order logic formulae
 
 You would get the backward chaining tree from the initial clause $Horse(h)$ of 
 
-![Screenshot 2019-04-24 at 10.40.49](/Users/calummcmeekin/Desktop/Screenshot 2019-04-24 at 10.40.49.png)
+![Screenshot 2019-04-24 at 10.40.49](images/Screenshot 2019-04-24 at 10.40.49.png)
 
 ###Resolution
 
@@ -122,8 +122,6 @@ You would get the backward chaining tree from the initial clause $Horse(h)$ of
 3. Convert everything to CNF
 4. Choose clauses and resolve
 5. If resolution results in empty clause then conclusion is proved
-
-
 
 ### Situation Calculus
 
