@@ -155,7 +155,7 @@ error(myErrorMessage); %Will print a red error message to the console
 ```matlab
 if (parameter)
 	%Do this
-elseif (anotherParameter | myName == myLastName)
+elseif (anotherParameter || myName == myLastName)
 	%Do this instead
 else
 	%Well do this then
@@ -443,3 +443,6 @@ A = gallery('circul', 3);
 
 ```
 
+
+
+### 
