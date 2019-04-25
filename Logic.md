@@ -39,15 +39,42 @@
         - Objects [people, houses, numbers, colours]
         - Relations [red, round, prime, brother of]
         - Functions [Father of, best friend, plus, greater than]
+    
 - Formulae are mapped to an interpretation
+
 - **Skolemization** is a way of removing existential quantifiers from a formula
+
 - **Definite clause** is a clause with only one positive literal
+
 - **Model** is an interpretation of a model when all formulae in the model are true
+
 - **Universal Quantification** is always used with implication
+    
     -  $∀x.At(x,UoE) ⇒ Smart(x)$ = Everyone who is at UoE is smart
+    
 - **Existential Quantification** is always used with ∧
+    
     - $∀x.At(x,UoE) ∧ Smart(x)$ = Everyone is at UoE and everyone is smart
+    
 - **Equality** (term1=term2) can be used if term1 and term2 refer to the same object
+
+- **Ground Binary Resolution Rule** $\frac{(A ∨ B)(D ∨ ¬B)}{A ∨ D}$ Does this by using:
+
+    - Propositionalisation	
+        - Generates lots of irrelevant sentences as opposed to desired sentence
+        - If knowledge base includes a function symbol then the set of possible ground-term subsitituions is infinite
+    - Unification
+        - Performing subsitution of values
+    - Factoring
+        - 
+    - CNF
+    - Standardising-apart variables
+
+- **Non-Binary Resolution Rule** $\frac{(C ∨P) (D∨P')} {(C∨D)θ} $where θ = MGU for P and P'​
+
+    ###### Example
+
+    ​	$\frac{(¬Rich(x) ∨ Unhappy(x)) (Rich(Ken))}{Unhappy(Ken)}$
 
 ![Screenshot 2019-04-24 at 09.37.12](images/Screenshot 2019-04-24 at 09.37.12.png)
 
@@ -92,7 +119,7 @@ $\frac{p_1 ',p_2 ',...p_n '(p_1  ∧ p_2 ∧…∧p_n  ⇒ q))} {qθ}$ when $p_i
 
 ![Screenshot 2019-04-24 at 11.03.52](images/Screenshot 2019-04-24 at 11.03.52.png)
 
-###Forwards Chaining - FC
+###Forward Chaining - FC
 
 - Starting with the given clauses in the KB and using inference rules to derive the goal clause
 - Sound and complete for definite clauses (clause with one positive literal)
