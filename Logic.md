@@ -1,6 +1,6 @@
-#A run<sub>mark</sub>down of logic
+# A run<sub>mark</sub>down of logic
 
-##Propositional Logic - PL
+## Propositional Logic - PL
 
 - Pros:
 
@@ -31,7 +31,7 @@
 
 ---
 
-##FIRST ORDER LOGIC - FOL
+## FIRST ORDER LOGIC - FOL
 
 - Pros
     - [x] Can be used for natural language
@@ -80,7 +80,7 @@
 
 ![Screenshot 2019-04-24 at 09.39.28](images/Screenshot 2019-04-24 at 09.39.28.png)
 
-######Examples:
+###### Examples:
 
 - One's mother is on'es female parent
     - $∀x,y.Mother(c) = m ⇔ (Female(m) ∧ Parent(m,c))$ 
@@ -94,7 +94,7 @@
         - To describe the above, this means that for all objects property P holds and there are no objects not equal to A such that P holds. Thus when the sentence is true then there can only be one object, A, in the domain of interpretation
     - $∀x.∃y.x=y$
 
-###Most General Unifier - MGU
+### Most General Unifier - MGU
 
 - Where you apply a subsititution of literals between two statements to end up with the same clause (a union of two clauses)
 
@@ -115,11 +115,11 @@
 
 $\frac{p_1 ',p_2 ',...p_n '(p_1  ∧ p_2 ∧…∧p_n  ⇒ q))} {qθ}$ when $p_i'θ ≡ p_iθ ∀i$ 
 
-######Example
+###### Example
 
 ![Screenshot 2019-04-24 at 11.03.52](images/Screenshot 2019-04-24 at 11.03.52.png)
 
-###Forward Chaining - FC
+### Forward Chaining - FC
 
 - Starting with the given clauses in the KB and using inference rules to derive the goal clause
 - Sound and complete for definite clauses (clause with one positive literal)
@@ -142,7 +142,7 @@ You would get the backward chaining tree from the initial clause $Horse(h)$ of
 
 ![Screenshot 2019-04-24 at 10.40.49](images/Screenshot 2019-04-24 at 10.40.49.png)
 
-###Resolution
+### Resolution
 
 1. Translate the premise and conclusion into First Order Logic
 2. Negate the conclusion (query)
