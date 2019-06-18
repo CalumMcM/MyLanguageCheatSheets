@@ -26,7 +26,7 @@ function hereIsAFunction(){
 
 ### Basic Arithmetic
 
-```
+```javascript
 \\Addition
 a + b;
 a++;
@@ -47,7 +47,7 @@ a%b; \\(15%2 == 1)
 
 ### Strings
 
-```
+```javascript
 myString = "This is a string"
 myString += "!" \\ "This is a string!"
 
