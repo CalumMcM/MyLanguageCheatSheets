@@ -22,7 +22,113 @@ function hereIsAFunction(){
 	hereIsAnotherGlobalVariable = 5; //Variables created without var wil be global
     var thisIsALocalVariable = 10;
 }
+
+//let variables
+let name = "Harry";
+let name = "Pringle"; //Throws an error as let doesnt allow objects to be changed
+
+//const variables (READ only variables)
+const pets = ["dog", "cat", "Pelican"];
+//This will throw an error when an attmept to change it is made. E.g.
+pets = ["dog", "Warthog", "Pelican"]
+//HOWEVER you can change indivdual items, E.g.
+pets[2] = "Banshee"; //pets = ["dog", "Warthog", "Banshee"]
+//This can be prevented by using freezing the object
+Object.freeze(pets); //Now nothing can change pets
+
 ```
+
+### Use Strict
+
+```javascript
+//By inserting:
+"use strict";
+//into your code it will catch bad coding habits. Such as missing out var when declaring a variable
+```
+
+
+
+### Objects / JSON
+
+```javascript
+var human = {
+	"name": "Jolly Boy John",
+	"hobbies": ["Eating chocolate bananas","Wearing grandmas knickers on his head"],
+	"age": 16,
+	"profession": "WOODEN PALLETS!"
+};
+//humansName = "Jolly boy John"
+var humansName = human.name; 
+human["name"];
+
+//Eg2
+var dogs = {
+  Fido: "Mutt", Hunter: "Doberman", Snoopie: "Beagle"
+};
+var myDog = "Hunter";
+var myBreed = dogs[myDog];
+console.log(myBreed); // "Doberman"
+
+//Updating values in an Object
+var patient = {
+    "name": "Buluga"
+    "issue": "Obese"
+    "condition": "critical"
+};
+patient.condition = "stable" //or
+patent["condition"] = "stable"
+
+//Adding new properties
+patient.surname = "Whale" //or
+patient["surname"] = "Whale"
+
+//Deleting properties
+delete patient.issue;
+
+//Checking if a property exists
+patient.hasOwnProperty("condition"); //True
+
+//Accessing nested objects
+var kitchenStock = {
+  "cupboard": {
+    "drawer": "rice"
+  },
+  "fridge": {
+    "top shelf": { 
+      "leftSide": "cheese",
+      "rightSide": "yoghurt"
+    },
+    "bottom drawer": "apples"
+  }
+};
+
+kitchenStock.fridge["top drawer"].rightSide; // "yoghurt"
+ourStorage.cupboard.drawer; // "rice"
+
+//Accessing nested arrays
+var zooAnimals = [
+  {
+    animalType: "monkey",
+    diet: [
+      "bananas",
+      "nits",
+      "chocolate-cake"
+    ]
+  },
+  {
+    animalType: "hippo",
+    diet: [
+      "grass",
+      "bark",
+      "ferns"
+    ]
+  }
+];
+zooAnimals[0].diet[1]; // "nits"
+zooAnimals[1].diet[0]; // "grass"
+```
+
+
 
 ### Basic Arithmetic
 
@@ -96,6 +202,21 @@ function notMyFunction(returnMe){
     var dontReturnME = returnME;
     return dontReturnME
 }
+
+//Arrow Functions
+
+const myFunc = function(myVar) {
+  const thisVar = 20;
+  myVar += thisVar;
+  return myVar;
+}
+//Is the same as:
+const myFunc = (myVar) => {
+    const thisVar = 20;
+    return myVar+thisVar;
+}
+//Is the same as:
+const myFunc = (myVar) => myVar+20
 ```
 
 ### If statements
@@ -109,6 +230,16 @@ if (myName == "Doc" && (hisName == "Marty" || dogName == "Einstein")){
 else{
     console.log("It is I, Jeff Goldbloom")
 }
+
+//Ternary operator
+//condition ? execute-if-true : execute-if-false
+function findGreater(a,b){
+    return a > b ? "a is greater than b" : "b is greater than a";
+}
+//Multiple Ternery operators
+function findGreaterOrEqual(a, b) {
+  return (a === b) ? "a and b are equal" : (a > b) ? "a is greater" : "b is greater";
+}
 ```
 ### Switch Statements
 ```javascript
@@ -120,3 +251,41 @@ switch(myVar){
 	default: doDefualt; break;
 }
 ```
+
+### While, For,  Loops
+
+```javascript
+while (i < 10) {
+	console.log(i);
+	i++;
+}
+var i = 0;
+do {
+    console.log(i);
+    i++;
+} while (i < 10);
+for (var i = 0; i < 5; i++){
+    console.log(i);
+}
+```
+
+### Random
+
+```javascript
+var randomInt = Math.random(); //Returns a random number in the range [0,1)
+
+//To generate a random number within a range:
+Math.floor(Math.random() * (max-min + 1)) + min
+```
+
+### Convert String to int
+
+```javascript
+var myInt = parseInt("1314");
+
+//Converting using radix (converting string in binary to int)
+var myBinaryNumber = parseInt("11",2);
+```
+
+_Majority of code was obtained from freeCodeCamp_
+
