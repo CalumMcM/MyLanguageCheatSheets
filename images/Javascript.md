@@ -110,4 +110,13 @@ else{
     console.log("It is I, Jeff Goldbloom")
 }
 ```
-
+### Switch Statements
+```javascript
+//Each case variable test for strict equality (===)
+//Without the breakstatement after a case the following case statements will also be executed until a break statement is reached
+switch(myVar){
+	case value1: doThis; break;
+	case value2: noDoThis; break;
+	default: doDefualt; break;
+}
+```
