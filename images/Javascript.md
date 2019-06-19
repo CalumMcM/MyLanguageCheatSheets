@@ -379,5 +379,25 @@ console.log(myCar.manufacturer); //Hyundai
 myCar.manufacturer = 'Honda';
 console.log(myCar.manufacturer); //Honda
 ```
+
+### Import Functions
+
+```javascript
+//Import one function from the file:
+import {functionName} from "file_path_goes_here" //Sometimes the file path needs "./" at the start
+
+//Import everything from a file:
+import * as myModule from "file_path_goes_here"
+myModule.functionFromMyModule(); //Call the function from my module
+```
+
+### Export
+```javascript
+//Given a function you have written such as
+const countCows = (cowsArray) => cowsArray.length
+
+const favouriteCow = "Daisy";
+export {cowsArray, favouriteCow}
+```
 _Majority of code was obtained from freeCodeCamp_
 
