@@ -360,7 +360,24 @@ var maxOfArr = Math.max(null, arr); //returns 60 and the null is needed otherwis
 
 ## Getters and Setters
 ```javascript
-
+//Example:
+class car{
+	constructor(make) {
+		this._make = make;
+	}
+	//getter
+	get manufacturer(){
+		return this._make;
+	}
+	//setter
+	set manufacturer(newManufacturer){
+		this._make = newManufacturer;
+	}
+}
+const myCar = new car('Hyundai'); 
+console.log(myCar.manufacturer); //Hyundai
+myCar.manufacturer = 'Honda';
+console.log(myCar.manufacturer); //Honda
 ```
 _Majority of code was obtained from freeCodeCamp_
 
