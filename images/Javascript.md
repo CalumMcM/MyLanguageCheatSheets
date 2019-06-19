@@ -22,7 +22,7 @@ function hereIsAFunction(){
 	hereIsAnotherGlobalVariable = 5; //Variables created without var wil be global
     var thisIsALocalVariable = 10;
 }
-
+//ES6:
 //let variables
 let name = "Harry";
 let name = "Pringle"; //Throws an error as let doesnt allow objects to be changed
@@ -35,17 +35,47 @@ pets = ["dog", "Warthog", "Pelican"]
 pets[2] = "Banshee"; //pets = ["dog", "Warthog", "Banshee"]
 //This can be prevented by using freezing the object
 Object.freeze(pets); //Now nothing can change pets
+```
+
+
+### Destructing Assignment of objects
+
+```javascript
+//ES6
+//Multi-assignments of objects
+var voxel = {x: 3.6, y: 7.4, z: 6.54 };
+const {x, y, z} = voxel; //OR
+const { x : a, y : b, z : c } = voxel // a = 3.6, b = 7.4, c = 6.54
+
+
+//From an Object:
+const LOCAL_FORECAST = {
+  today: { min: 72, max: 83 },
+  tomorrow: { min: 73.3, max: 84.6 }
+};
+//We can assign the value of max for tomorrow as such
+const {tomorrow : {max: maxOfTomorrow, min : minOfTomorrow}} = LOCAL_FORECAST;
+
+//From arrays
+//Using commas to reach desired point:
+const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
+console.log(a, b, c); // 1, 2, 5
+//Combine this with the use of the rest operator
+const [a, b, ...arr] = [1, 2, 3, 4, 5, 7];
+console.log(a, b); // 1, 2
+console.log(arr); // [3, 4, 5, 7]
+
 
 ```
 
 ### Use Strict
 
 ```javascript
+//ES6:
 //By inserting:
 "use strict";
 //into your code it will catch bad coding habits. Such as missing out var when declaring a variable
 ```
-
 
 
 ### Objects / JSON
@@ -162,6 +192,12 @@ myString += "!" \\ "This is a string!"
 
 myString[3] \\"i"
 
+//Inserting objects within quotations of a string
+const planet = {
+	name: "Earth",
+	ageInBillions: 4.53
+};
+const info = "We are from ${planet.name}. A planet which is ${planet.ageInBillions} billion years old!";
 
 ```
 
@@ -203,6 +239,22 @@ function notMyFunction(returnMe){
     return dontReturnME
 }
 
+//ES6:
+
+//Defualt parameters - When a parameter is not provided it will defualt to the one given
+
+function tableGuests(headGuest = "Greg Davies"){
+	tablesGuests = [headGuest, "Alan Davies", "Robert Davies", "Dave Davies"];
+	return tablesGuests;
+}
+
+//Rest parameters - Allows you to pass an unspecified amount of arguments and use them
+function sum(...args){
+	return args.reduce((previous, current) => { //The reduce function applies the given operation 
+		return previous + current; 	    //to the parameters so in this example it will sum all the 
+	}); 				            //values in the array from start to finish
+}
+
 //Arrow Functions
 
 const myFunc = function(myVar) {
@@ -216,7 +268,15 @@ const myFunc = (myVar) => {
     return myVar+thisVar;
 }
 //Is the same as:
-const myFunc = (myVar) => myVar+20
+const myFunc = (myVar) => myVar+20 //Essentially takes the format: type functionName = (inputParameters) => returnAllThis
+
+//Higher order arrow functions:
+//The following use of Filters a function as an argument
+FBPosts.filter(function(post) {
+  return post.thumbnail !== null && post.shares > 100 && post.likes > 500;
+})
+//Now with the use of arrow functions it can be written in one line like so:
+FBPosts.filter((post) => post.thumbnail !== null && post.shares > 100 && post.likes > 500)
 ```
 
 ### If statements
@@ -230,6 +290,8 @@ if (myName == "Doc" && (hisName == "Marty" || dogName == "Einstein")){
 else{
     console.log("It is I, Jeff Goldbloom")
 }
+
+//ES6:
 
 //Ternary operator
 //condition ? execute-if-true : execute-if-false
@@ -287,5 +349,18 @@ var myInt = parseInt("1314");
 var myBinaryNumber = parseInt("11",2);
 ```
 
+### Max function (and spread)
+
+```javascript
+var arr = [-1, 4, 60, 23];
+var maxOfArr = Math.max(...arr); //returns 60 through spreading the array. OR
+var maxOfArr = Math.max(null, arr); //returns 60 and the null is needed otherwise max expects comma seperated arguments and not an array
+
+```
+
+## Getters and Setters
+```javascript
+
+```
 _Majority of code was obtained from freeCodeCamp_
 
