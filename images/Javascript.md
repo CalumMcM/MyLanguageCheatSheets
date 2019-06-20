@@ -417,6 +417,9 @@ myWord.test(myString); //Returns True
 myLetters.test(myString); //Returns True
 myString.test(/^The/) //Returns True		Test occurance is at start of string (^)
 myString.test(/booming/$) //Returns True	Test occurance is at end of string ($)
+let mySample = "gorilla";
+mySample.test(/(?=\w{5,}); //Returns true			Positive Lookahead (?=...)
+mySample.test(/(?!b)/); Returns tre				Negative Lookahead (?!...)
 
 let myWords = /up|down|left|right/;			//Catch different possibilities			
 let ignoreCase = /YoUcAn'TExPrEsSsArCaSmWiThTeXt/i 		//case Insensitive	
@@ -444,6 +447,7 @@ let ohStr = "Ohhh no";
 ohStr.match(/Oh{3,6}\s/); //Returns true			Upper and lower bound for occurances
 ohStr.match(/Oh{3,}/);	Returns True				Only lower bound for occurances
 ohStr.match(/Oh{3}/); Returns True				Exact number of occurances
+
 
 ```
 
