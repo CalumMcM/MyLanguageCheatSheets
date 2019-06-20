@@ -422,12 +422,16 @@ let ignoreCase /YoUcAn'TExPrEsSsArCaSmWiThTeXt/i //The flag 'i' will mean case i
 
 //Match function:
 let jobDone = "Bingo Bango Bongo. Bish. Bash. Bosh";
-jobDone.match(/Bish/); //Returns ["Bish"]				Simple match
-jobDone.match(/Ba./); //Returns ["Bango", "Bash"]			Anything fill
-jobDone.match(/b[iao]ngo/); //Returns ["Bingo Bango Bongo"];		Set characters gap
-jobDone.match(/b[a-j]sh/); //Returns ["Bish", "Bosh"] 			Alphabet range
+jobDone.match(/Bish/g); //Returns ["Bish"]				Simple match
+jobDone.match(/Ba./g); //Returns ["Bango", "Bash"]			Anything fill
+jobDone.match(/b[iao]ngo/g); //Returns ["Bingo, Bango, Bongo"];		Set characters gap
+jobDone.match(/b[a-j]sh/g); //Returns ["Bish", "Bosh"] 			Alphabet range
 date.match(/[a-z0-9]/);							Alphabet and numbers match
 jobDone.match(/b[^ia]ngo/); //Returns ["Bongo"]				Ignore specified letters
+let repeatedChars = "Heeeeeeeeeeeeeeeeeelp!"
+repeatedChars.match(/He*/); //Returns ["Heeeeeeeeeeeeeeeeee"]		Zero or More times
+let oneString = "Mississippi";
+oneString.match(/s+/g); //Returns ["ss","ss"]
 
 let testStr = "Repeat, Repeat, Repeat";
 testStr.match[/Repeat/g]; //Returns ["Repeat, Repeat, Repeat"] The use of the g flag allows repetitions to be returned
