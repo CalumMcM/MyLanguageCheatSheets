@@ -410,33 +410,40 @@ export default function myFunction(inp1, inp2) {return inp1*inp2}
 ```javascript
 //Test function:
  
-let myString = "The baby clothing industry is booming.";
+let myString = "The baby clothing industry is booming";
 let myWord = /clothing/;
 let myLetters = /boom/;
-myWord.test(myString); //True
-myLetters.test(myString); //True
+myWord.test(myString); //Returns True
+myLetters.test(myString); //Returns True
+myString.test(/^The/) //Returns True		Test occurance is at start of string (^)
+myString.test(/booming/$) //Returns True	Test occurance is at end of string ($)
 
-//Catch different possibilities
-let myWords = /up|down|left|right/;
-let ignoreCase /YoUcAn'TExPrEsSsArCaSmWiThTeXt/i //The flag 'i' will mean case is ignored
+let myWords = /up|down|left|right/;			//Catch different possibilities			
+let ignoreCase = /YoUcAn'TExPrEsSsArCaSmWiThTeXt/i 		//case Insensitive	
 
 //Match function:
-let jobDone = "Bingo Bango Bongo. Bish. Bash. Bosh";
-jobDone.match(/Bish/g); //Returns ["Bish"]				Simple match
-jobDone.match(/Ba./g); //Returns ["Bango", "Bash"]			Anything fill
-jobDone.match(/b[iao]ngo/g); //Returns ["Bingo, Bango, Bongo"];		Set characters gap
-jobDone.match(/b[a-j]sh/g); //Returns ["Bish", "Bosh"] 			Alphabet range
-date.match(/[a-z0-9]/);							Alphabet and numbers match
-jobDone.match(/b[^ia]ngo/); //Returns ["Bongo"]				Ignore specified letters
-let repeatedChars = "Heeeeeeeeeeeeeeeeeelp!"
-repeatedChars.match(/He*/); //Returns ["Heeeeeeeeeeeeeeeeee"]		Zero or More times
-let oneString = "Mississippi";
-oneString.match(/s+/g); //Returns ["ss","ss"]
-
 let testStr = "Repeat, Repeat, Repeat";
-testStr.match[/Repeat/g]; //Returns ["Repeat, Repeat, Repeat"] The use of the g flag allows repetitions to be returned
-
-
+testStr.match[/Repeat/g]; //Returns ["Repeat, Repeat, Repeat"] //Returns multiple occurances (g)
+let jobDone = "Bingo Bango Bongo. Bish. Bash. Bosh";
+jobDone.match(/Bish/g); //Returns ["Bish"]			Simple match
+jobDone.match(/Ba./g); //Returns ["Bango", "Bash"]		Anything fill (.)
+jobDone.match(/b[iao]ngo/g); //Returns ["Bingo, Bango, Bongo"];	Set characters gap
+jobDone.match(/b[a-j]sh/g); //Returns ["Bish", "Bosh"] 		Alphabet range ([a-z])
+date.match(/[a-z0-9]/);						Alphabet and numbers match([a-z0-9])
+jobDone.match(/b[^ia]ngo/); //Returns ["Bongo"]			Ignore specified letters([^])
+let repeatedChars = "Heeeeeeeeeeeeeeeeeelp!"
+repeatedChars.match(/He*/); //Returns ["Heeeeeeeeeeeeeeeeee"]	Zero or More times (*)
+let oneString = "Mississippi";
+oneString.match(/s+/g); //Returns ["ss","ss"]			One or More times (+)
+jobDone.match(/\w+/); //Returns the whole string jobDone	Shorthand notation for match every character (\w+)
+jobDone.match(/\W/); //Returns nothing				Shorthand non-alphnumeric characters (\W)
+myPi.match(/\d\); //Returns only digits or numbers		Shorthand for only digits/numbers (\d)
+miPi.match(/\D/); //Returns all non-numbers			Shorthand for non-numbers (\D)
+jobDone.match(/\s/) //Returns [" "," ", " ", " ", " "]		Shorthand for whitespace (\s)
+let ohStr = "Ohhh no";
+ohStr.match(/Oh{3,6}\s/); //Returns true			Upper and lower bound for occurances
+ohStr.match(/Oh{3,}/);	Returns True				Only lower bound for occurances
+ohStr.match(/Oh{3}/); Returns True				Exact number of occurances
 
 ```
 
