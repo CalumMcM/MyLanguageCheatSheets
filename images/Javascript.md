@@ -325,13 +325,17 @@ while (i < 10) {
 	console.log(i);
 	i++;
 }
-var i = 0;
+let i = 0;
 do {
     console.log(i);
     i++;
 } while (i < 10);
 for (var i = 0; i < 5; i++){
     console.log(i);
+}
+//For loop for objects:
+for (let key in objectName){
+	delete objectName.key;
 }
 ```
 
