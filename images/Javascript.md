@@ -122,6 +122,9 @@ delete patient.issue;
 //Checking if a property exists
 patient.hasOwnProperty("condition"); //True
 
+//Checking length of an object
+Object.keys(patients).length;
+
 //Accessing nested objects
 var kitchenStock = {
   "cupboard": {
