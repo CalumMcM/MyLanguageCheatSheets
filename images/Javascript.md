@@ -7,7 +7,7 @@ Multi-line comment
 */	
 ```
 
-### Data Types and Variables
+### Data types and Variables
 
 ```javascript
 /*Data types are
@@ -22,6 +22,10 @@ function hereIsAFunction(){
 	hereIsAnotherGlobalVariable = 5; //Variables created without var wil be global
     var thisIsALocalVariable = 10;
 }
+
+//Check Data type
+typeof(myVariableType) //Will return the type of the variable passed in
+
 //ES6:
 //let variables
 let name = "Harry";
@@ -465,6 +469,16 @@ myString.trimLeft() //Returns "Why is there so much white space?    ";
 myString.trimRight() //Returns "    Why is there so much white space?";
 
 ```
+
+### Console Log
+```javascript
+
+console.log("Hello World"); //Will output "Hello World" to the web console
+
+```
+# BootStrap Framework
+
+### 
 
 _Majority of code was obtained from freeCodeCamp_
 
