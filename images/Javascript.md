@@ -420,12 +420,14 @@ myString.test(/booming/$) //Returns True	Test occurance is at end of string ($)
 let mySample = "gorilla";
 mySample.test(/(?=\w{5,}); //Returns true			Positive Lookahead (?=...)
 mySample.test(/(?!b)/); Returns tre				Negative Lookahead (?!...)
+let testStr = "Repeat Repeat Repeat";
+testStr.match(/(\w+)\s\2);
 
 let myWords = /up|down|left|right/;			//Catch different possibilities			
 let ignoreCase = /YoUcAn'TExPrEsSsArCaSmWiThTeXt/i 		//case Insensitive	
 
 //Match function:
-let testStr = "Repeat, Repeat, Repeat";
+let testStr = "Repeat Repeat Repeat";
 testStr.match[/Repeat/g]; //Returns ["Repeat, Repeat, Repeat"] //Returns multiple occurances (g)
 let jobDone = "Bingo Bango Bongo. Bish. Bash. Bosh";
 jobDone.match(/Bish/g); //Returns ["Bish"]			Simple match
@@ -447,7 +449,20 @@ let ohStr = "Ohhh no";
 ohStr.match(/Oh{3,6}\s/); //Returns true			Upper and lower bound for occurances
 ohStr.match(/Oh{3,}/);	Returns True				Only lower bound for occurances
 ohStr.match(/Oh{3}/); Returns True				Exact number of occurances
+testStr.match(/(\w+)\s\2); Returns ["Repeat Repeat Repeat", "Repeat"] Reuse regex expression (())
 
+//Replace
+var str = "Mr Blue has a blue house and a blue car";
+var res = str.replace(/blue/g, "red"); //Replaces all occurnaces of the first input with the second input
+```
+
+### Trim
+```javascript
+//Will remove all whitepace from the given input
+let myString = "    Why is there so much white space?    ";
+myString.trim(); //Returns "Why is there so much white space?";
+myString.trimLeft() //Returns "Why is there so much white space?    ";
+myString.trimRight() //Returns "    Why is there so much white space?";
 
 ```
 
