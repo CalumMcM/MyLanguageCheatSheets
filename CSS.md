@@ -8,11 +8,11 @@ Multi line comment
 
 
 
-### justify-alignment
+### justify-content
 
 ```css
 /*CONTAINER MUST CONTAIN:*/
-display:flex;
+display: flex;
 /* PLUS: */
 justify-content: flex-start; /*Align items to left of container*/
 justify-content: flex-end; /*Align items to right side of container*/
@@ -27,7 +27,7 @@ justify-content: space-around; /*Display items with equal spacing around them*/
 
 ```css
 /*CONTAINER MUST CONTAIN:*/
-display:flex;
+display: flex;
 /* PLUS: */
 align-items: flex-start;/*Items align to the top of the container*/
 align-items: flex-end; /*Items align to the bottom of the container*/
@@ -36,11 +36,11 @@ align-items: baseline; /*Items display at baseline of the container*/
 align-items: stretch; /*Items are stretched to fit container*/
 ```
 
-### Align-self
+### align-self
 
 ```css
 /*CONTAINER MUST CONTAIN:*/
-display:flex;
+display: flex;
 /* PLUS: */
 align-self: flex-start;/*Item is align to the top of the container*/
 align-self: flex-end; /*Item is align to the bottom of the container*/
@@ -53,7 +53,7 @@ align-self: stretch; /*Item is stretched to fit container*/
 
 ```css
 /*CONTAINER MUST CONTAIN:*/
-display:flex;
+display: flex;
 /* PLUS: */
 flex-direction: row; /*Items are placed the same as the text direction*/
 flex-direction: row-reverse; /*Items are placed opposite to the text direction*/
@@ -103,6 +103,12 @@ align-content: flex-end; /*Linea re packed at the bottom of the container*/
 align-content: center; /*Lines are packed at the vertical center of the container*/
 align-content: space-between; /*Lines display with equal spacing between them*/
 align-content: space-around; /*Lines display with equal spacing around them*/
-align-content: stretch; /*Lines are stretched to fir the container*/
+align-content: stretch; /*Lines are stretched to fit the container*/
+```
+
+### margin
+
+```css
+
 ```
 
