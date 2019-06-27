@@ -483,8 +483,21 @@ myString.trimRight() //Returns "    Why is there so much white space?";
 console.log("Hello World"); //Will output "Hello World" to the web console
 
 ```
-# BootStrap Framework
+### Run a shell command from within the Javascript file
+Only works for javascript programs that are not running online
+```javascript
+const execSync = require('child_process').execSync;
+let myCommand = 'ping www.bbc.co.uk';
+output = execSync(myCommand, { encoding: 'utf-8' }); //Calls the command and reads the output
+console.log(output);
+```
 
+###Call an API
+```javascript
+response=getJSON('http://mylink.com/happyAPI', function(data) {});
+//data is the JSON string
+console.log(response);
+```
 ### 
 
 _Majority of code was obtained from freeCodeCamp_
