@@ -492,13 +492,11 @@ output = execSync(myCommand, { encoding: 'utf-8' }); //Calls the command and rea
 console.log(output);
 ```
 
-###Call an API
+### Call an API
 ```javascript
 response=getJSON('http://mylink.com/happyAPI', function(data) {});
 //data is the JSON string
 console.log(response);
 ```
-### 
-
 _Majority of code was obtained from freeCodeCamp_
 
